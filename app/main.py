@@ -10,7 +10,7 @@ def health():
     return {"status": "ok"}
 
 
-@app.get("/item/{item_id}")
+@app.get("/items/{item_id}")
 def get_item(item_id: int):
     if item_id not in ITEMS:
         raise HTTPException(status_code=404, detail="Item not found")

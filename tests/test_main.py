@@ -12,7 +12,7 @@ def test_health():
 
 
 def test_get_item():
-    response = client.get("/item/1")
+    response = client.get("/items/1")
     assert response.status_code == 200
     assert response.json() == {"id": 1, "name": "book"}
 
@@ -20,6 +20,7 @@ def test_get_item():
 def test_item_not_found():
     response = client.get("/items/99")
     assert response.status_code == 404
+    assert response.json() == {"detail": "Item not found"}
 
 
 def test_add():
